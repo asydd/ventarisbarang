@@ -19,10 +19,10 @@ class Products extends Model
         "category_id",
     ];
 
-    protected $table = 'products';
+    protected $table = 'product';
     // protected $guarded = [];
 
     public function category() {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

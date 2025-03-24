@@ -11,24 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product', function (Blueprint $table) {
-            
+        Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable()->default(null);
-            $table->string('sku', 100);
-            $table->decimal('price', 10, 2);
-            $table->integer('stock');
-            $table->bigInteger('category_id');
+            $table->string('phone');
+            $table->text('address');
             $table->timestamps();
-        });
-    }
+        });    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('suppliers');
     }
 };
