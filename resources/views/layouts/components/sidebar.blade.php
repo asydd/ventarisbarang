@@ -1,26 +1,42 @@
 @php
-    $menus = [
-        (object) [
-            "title" => "Dashboard",
-            "path" => "/dashboard",
-            "icon" => "fas fa-th"
-    ],
-        (object) [
-            "title" => "Kategori",
-            "path" => "/categories",
-            "icon" => "fas fa-th"
+    $menus = 
+    [
+    (object) [
+        "title" => "Dashboard",
+        "path" => "/dashboard",
+        "icon" => "fas fa-tachometer-alt" // ikon dashboard
     ],
     (object) [
-            "title" => "Produk",
-            "path" => "/products",
-            "icon" => "fas fa-th"
+        "title" => "Item",
+        "path" => "/items",
+        "icon" => "fas fa-box" // sudah cocok
     ],
     (object) [
-            "title" => "Supplier",
-            "path" => "/suppliers",
-            "icon" => "fas fa-truck"
+        "title" => "Kategori",
+        "path" => "/categories",
+        "icon" => "fas fa-tags" // ikon untuk kategori/tag
+    ],
+    (object) [
+        "title" => "Produk",
+        "path" => "/products",
+        "icon" => "fas fa-cube" // ikon produk atau barang
+    ],
+    (object) [
+        "title" => "Supplier",
+        "path" => "/suppliers",
+        "icon" => "fas fa-truck" // sudah cocok
+    ],
+    (object) [
+        "title" => "Transaksi",             
+        "path" => "/transactions",
+        "icon" => "fas fa-exchange-alt" // sudah cocok
+    ],
+    (object) [
+            "title" => "Laporan",             
+            "path" => "/reports",
+            "icon" => "fas fa-file-alt"
         ],
-    ];
+];
 @endphp
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">

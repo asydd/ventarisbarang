@@ -23,7 +23,7 @@
                 <h5 class="mb-0">Form Tambah Supplier</h5>
             </div>
             <div class="card-body">
-                <form action="{{ url('/suppliers/store') }}" method="POST">
+                <form action="{{ route('suppliers.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label>Nama Supplier</label>
@@ -38,7 +38,7 @@
                         <textarea name="address" class="form-control" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Simpan</button>
-                    <a href="/suppliers" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ route('suppliers.index') }}" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
         </div>

@@ -4,21 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
     use HasFactory;
 
+    protected $table = 'category'; // custom table name
 
     protected $fillable = [
-        "name", "slug"
+        'name',
+        'slug'
     ];
 
-    protected $table = 'category';
+    // Satu kategori memiliki banyak produk
+    public function products()
+    {
+        return $this->hasMany(Products::class, 'category_id', 'id');
+    }
 
-    public function products() {
-        return $this->belongsTo(Products::class, 'category_id');
+    // Satu kategori memiliki banyak item
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'category_id');
     }
 }

@@ -1,9 +1,12 @@
 <?php
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ErrorController;
+use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SupplierController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +17,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('login', [AuthController::class, 'loginView'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-
 
 
 
@@ -34,12 +34,13 @@ Route::post('/categories/store', [CategoryController::class, 'store']);
 Route::put('/categories/{id}', [CategoryController::class, 'update']);
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
-Route::get('/suppliers', [SupplierController::class, 'index']);
-Route::get('/suppliers/create', [SupplierController::class, 'create']);
-Route::post('/suppliers/store', [SupplierController::class, 'store']);
-Route::get('/suppliers/edit/{id}', [SupplierController::class, 'edit']);
-Route::put('/suppliers/{id}', [SupplierController::class, 'update']);
-Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy']);
+Route::resource('suppliers', SupplierController::class);
+Route::resource('items', ItemController::class);
+
+
+Route::resource('/transactions', TransaksiController::class);
+Route::resource('/reports', ReportController::class,);
+
 
 // Route::resource('categories', CategoryController::class);
 
