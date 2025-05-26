@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\DetailBarangController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SupplierController;
 use App\Models\Category;
@@ -36,6 +37,7 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
 Route::resource('suppliers', SupplierController::class);
 Route::resource('items', ItemController::class);
+Route::resource('detail_barang', DetailBarangController::class);
 
 
 Route::resource('/transactions', TransaksiController::class);

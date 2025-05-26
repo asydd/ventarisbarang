@@ -10,7 +10,7 @@ class Transaksi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_user',
+        'user_id',
         'type',
         'quantity',
         'transaction_date',
@@ -24,6 +24,6 @@ class Transaksi extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user'); // Pastikan menggunakan user_id sebagai foreign key
+        return $this->belongsTo(User::class, 'id'); // Pastikan menggunakan user_id sebagai foreign key
     }
 }

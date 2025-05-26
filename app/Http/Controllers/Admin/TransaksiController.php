@@ -36,24 +36,26 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
 {
-    $data = $request->validate([
-        'id_user' => 'required|exists:users,id', // Ubah id_user menjadi user_id
-        'type' => 'required|string|in:in,out',
-        'quantity' => 'required|numeric|min:1',
-        'transaction_date' => 'required|date',
-        'description' => 'nullable|string',
-    ]);
-
+    //dd('h');
     // dd($request->all());
-    try {
+    $data = [
+        'user_id' => 1, // Ubah id_user menjadi user_id
+        'type' => $request->input('type'),
+        'quantity' => $request->input('quantity'),
+        'transaction_date' => $request->input('transaction_date'),
+        'description' => $request->input('description'),
+    ];
+
+    //dd($data);
+    // try {
         Transaksi::create($data);
         
 
         return redirect('/transactions')->with('success', 'Transaksi berhasil ditambahkan.');
-    } catch (\Exception $e) {
-        Log::error("Error in TransaksiController@store: " . $e->getMessage());
-        return view('error.index');
-    }
+    // } catch (\Exception $e) {
+    //     Log::error("Error in TransaksiController@store: " . $e->getMessage());
+    //     return view('error.index');
+    // }
 }
 
     public function edit($id)
